@@ -1,0 +1,38 @@
+pipeline {
+
+agent any
+
+    stages {
+
+         stage('scm') {
+
+                    steps {
+                      
+                    git credentialsId: 'e94b723a-dc45-40b1-affa-467491866e9a', url: 'https://bitbucket.org/123456789_11/multi-php/src/master/'
+                           }
+             
+                      }
+
+         stage('Build') {
+
+                   steps {
+
+                         sh 'docker build -t helloworld-${BRANCH} .'
+                         }
+
+                      }
+
+   stage('deploy') {
+
+                   steps {
+
+                        sh " curl -v -u admin:admin -T /var/lib/jenkins/workspace/multibranch-php_master/target/multibranch-php-1.0-SNAPSHOT.jar 'http://54.162.55.130:8080/manager/text/deploy?path=/pipeline_multibranch-php'"
+                         }
+
+                      } 
+
+        
+
+            }
+
+    }
