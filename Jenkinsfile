@@ -1,6 +1,6 @@
 pipeline {
 
-agent mac
+agent any
 
     stages {
 
