@@ -25,7 +25,10 @@ agent any
 
                    steps {
 
-                        sh "pwd"
+                        sh returnStatus: true, returnStdout: true, script: '''docker ps -a
+docker rm helloworld-$GIT_BRANCH
+docker images
+docker run -d -p 91:80 --name helloworld-$GIT_BRANCH helloworld-$GIT_BRANCH'''
                          }
 
                       } 
