@@ -16,7 +16,6 @@ agent any
          stage('Build') {
 
                    steps {
-
                          sh "docker build -t helloworld-$GIT_BRANCH ."
                          }
 
