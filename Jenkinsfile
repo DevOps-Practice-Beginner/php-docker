@@ -26,8 +26,8 @@ agent any
                    steps {
 
                         sh returnStatus: true, returnStdout: true, script: '''docker ps -a
-docker rm helloworld-$GIT_BRANCH
 docker images
+docker stop helloworld-$GIT_BRANCH || true && docker rm helloworld-$GIT_BRANCH || true
 docker run -d -p 91:80 --name helloworld-$GIT_BRANCH helloworld-$GIT_BRANCH'''
                          }
 
