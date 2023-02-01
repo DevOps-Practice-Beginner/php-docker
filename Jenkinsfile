@@ -8,7 +8,7 @@ agent { label 'mac' }
 
                     steps {
                     echo "======== Cloning the source code ==============="
-                    git branch: 'release', credentialsId: 'rajendranelakurthi', url: 'https://github.com/DevOps-Practice-Beginner/php-docker.git'
+                    git branch: 'production', credentialsId: 'rajendranelakurthi', url: 'https://github.com/DevOps-Practice-Beginner/php-docker.git'
                     echo "BRANCH: ${GIT_BRANCH}"
                            }
              
