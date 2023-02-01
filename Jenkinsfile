@@ -12,7 +12,7 @@ agent { label 'mac' }
                     steps {
                     echo "======== Cloning the source code ==============="
                     git branch: 'stage', credentialsId: 'rajendranelakurthi', url: 'https://github.com/DevOps-Practice-Beginner/php-docker.git'
-                    echo "BRANCH: ${BRANCH}"
+                    echo "BRANCH: ${GIT_BRANCH}"
                            }
              
                       }
@@ -21,8 +21,8 @@ agent { label 'mac' }
 
                    steps {
                     script {
-             echo "=================Building Docker image for ${BRANCH} branch========================"
-             sh "docker build -t helloworld-${BRANCH} ."
+             echo "=================Building Docker image for ${GIT_BRANCH} branch========================"
+             sh "docker build -t helloworld-${GIT_BRANCH} ."
              
          }
       }
@@ -30,11 +30,11 @@ agent { label 'mac' }
    stage('deploy') {
 
                    steps {
-               echo "=================Deploying PHP code in :${BRANCH} Environment"
+               echo "=================Deploying PHP code in :${GIT_BRANCH} Environment"
                         sh returnStatus: true, returnStdout: true, script: '''docker ps -a
 docker images
-docker stop helloworld-${BRANCH} || true && docker rm helloworld-${BRANCH} || true
-docker run -d -p 93:80 --name helloworld-${BRANCH} helloworld-${BRANCH}'''
+docker stop helloworld-${GIT_BRANCH} || true && docker rm helloworld-${GIT_BRANCH} || true
+docker run -d -p 93:80 --name helloworld-${GIT_BRANCH} helloworld-${GIT_BRANCH}'''
                          }
 
                       } 
