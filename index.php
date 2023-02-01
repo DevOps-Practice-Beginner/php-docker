@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<style>
+body {
+  background-color: lightblue;
+}
+</style>
 <h1>My first PHP page on Development</h1>
 
 <?php
