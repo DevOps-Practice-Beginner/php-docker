@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<h1>My first PHP page on Main branch</h1>
+<h1>My first PHP page on Development</h1>
 
 <?php
 echo "Hello World!";
