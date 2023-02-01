@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
 <style>
-body {
-  background-color: yellow;
+body  {
+  background-image: url("production.jpeg");
+  background-color: #cccccc;
 }
 </style>
-<h1>My first PHP page on :: PRODUCTION</h1>
+</head>
+<body>
 
-<?php
-echo "Hello World!";
-?>
+<h1>Welcome to the PRODUCTION</h1>
+
+<p>Hello World!</p>
 
 </body>
 </html>
