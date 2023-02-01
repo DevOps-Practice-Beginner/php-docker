@@ -3,7 +3,7 @@
 <body>
 <style>
 body {
-  background-color: red;
+  background-color: yellow;
 }
 </style>
 <h1>My first PHP page on :: PRODUCTION</h1>
