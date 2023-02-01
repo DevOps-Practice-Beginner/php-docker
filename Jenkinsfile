@@ -1,6 +1,6 @@
 pipeline {
 
-agent any
+agent { label 'mac' }
     environment {
         BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
     }
