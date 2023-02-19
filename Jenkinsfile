@@ -1,9 +1,9 @@
 pipeline {
 
 agent { label 'mac' }
-    environment {
+    /*environment {
         BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
-    }
+    }*/
     stages {
 
          stage('scm') {
@@ -21,7 +21,7 @@ agent { label 'mac' }
                    steps {
                     script {
              echo "=================Building Docker image for ${GIT_BRANCH} GIT_BRANCH========================"
-             sh "docker build -t helloworld-${GIT_BRANCH} ."
+             sh "docker build -t helloworld-main ."
              
          }
       }
@@ -32,8 +32,8 @@ agent { label 'mac' }
                echo "=================Deploying PHP code in :${GIT_BRANCH} Environment"
                         sh returnStatus: true, returnStdout: true, script: '''docker ps -a
 docker images
-docker stop helloworld-${GIT_BRANCH} || true && docker rm helloworld-${GIT_BRANCH} || true
-docker run -d -p 92:80 --name helloworld-${GIT_BRANCH} helloworld-${GIT_BRANCH}'''
+docker stop helloworld-main || true && docker rm helloworld-main || true
+docker run -d -p 92:80 --name helloworld-main helloworld-main'''
                          }
 
                       } 

@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+
+  eb:
+    image: esridocker/experience-builder
+    environment:
+      PORTAL_URL: some-url
+      CLIENT_ID: some-id
+    volumes:
+      - ./ebdata:/home/eb:rw
+    ports:
+    - 3001:3001
+    - 3000:3000
